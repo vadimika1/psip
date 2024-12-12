@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of [Your Name]">
+    <meta name="keywords" content="portfolio, skills, experience, projects">
+    <meta name="author" content="[Your Name]">
+    <title>Вадим Антонович портфолио</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    @import "styles.css";
+    /* Идентификатор */
+    #registration-form {
+    background-color: #525252; /* Изменяем цвет фона */
+    padding: 20px; /* Добавляем отступы */
+    border-radius: 10px; /* Добавляем скругления краев */
+}
+    </style>
+    <!-- Внешний JS-файл -->
+    <script src="scripts.js" defer></script>
+    <script src="external-script.js" defer></script>
+</head>
+<body bgcolor="#37363d">
+
+    <header>
+        <nav>
+            <a href="#section1">Первый раздел</a>
+            <a href="#section2">Второй раздел</a>
+            <a href="#section3">Третий раздел</a>
+        </nav>
+    </header>
+    <section>
+    <h2 id="section1">Обо мне</h2>
+    <p>Привет, меня зовут Вадим. Я будущий программист, и на этом сайте вы можете увидеть моё портфолио</p>
+    
+    <h2>Умения</h2>
+    <ul>
+        <li>Pascal</li>
+        <li>Python</li>
+        <li>C#</li>
+        <li>Adobe</li>
+    </ul>
+    
+    <h2>Любимые блюда</h2>
+    <ol>
+        <li>Пицца</li>
+        <li>Суши</li>
+        <li>Гамбургеры</li>
+    </ol>
+    
+    <h2>Увлечения</h2>
+    <ul>
+        <li>Видеомонтаж</li>
+        <li>Видеосьёмка</li>
+        <li>Программирование</li>
+    </ul>
+    
+    <h2>Любимые языки программирования</h2>
+    <ol>
+        <li>Python</li>
+        <li>Pascal</li>
+        <li>C#</li>
+    </ol>
+    
+    <h2 id="section2">Мои фотки</h2>
+    <div class="photo-container">
+        <img src="IMG_7075.jpg" onclick="alert('Это фото 1!')">
+        <img src="IMG_7076.jpg" onclick="alert('Это фото 2!')">
+      </div>
+    
+    <h2>Любимый трек и видео</h2>
+    <audio controls>
+        <source src="Music1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <video width="320" height="240" controls>
+        <source src="Video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <h2>Персональная информация</h2>
+    <table border="2">
+        <tr>
+          <td>Имя</td>
+          <td>Email</td>
+        </tr>
+        <tr>
+          <td>Вадим</td>
+          <td>vadimantanovich@gmail.com</td>
+        </tr>
+      </table>
+    
+      <div class="subscription-container">
+        <h1 class="main-title">Выбери оптимальный вариант покупки</h1>
+        <form class="subscription-form">
+            <!-- Step 1 -->
+            <div class="subscription-step">
+                <h3 class="step-title yellow-text">Шаг 1</h3>
+                <label for="training-type">Тип тренировок</label>
+                <select id="training-type" class="yellow-options">
+                    <option>Тренажёрный зал</option>
+                    <option>Йога</option>
+                    <option>Плавание</option>
+                    <option>Кардиотренировки</option>
+                </select>
+                <label for="sessions-per-month">Количество занятий в месяц</label>
+                <select id="sessions-per-month" class="yellow-options">
+                    <option>1 занятие</option>
+                    <option>4 занятия</option>
+                    <option>8 занятий</option>
+                    <option>12 занятий</option>
+                </select>
+                <label for="months">Количество месяцев</label>
+                <select id="months" class="yellow-options">
+                    <option>3 месяца</option>
+                    <option>6 месяцев</option>
+                    <option>12 месяцев</option>
+                </select>
+                <label for="subscription-type">Тип абонемента</label>
+                <select id="subscription-type" class="yellow-options">
+                    <option>Именной</option>
+                    <option>Семейный</option>
+                    <option>Корпоративный</option>
+                </select>
+                <div class="subscription-price">Цена абонемента: <strong class="yellow-text">850 руб.</strong></div>
+            </div>
+            <!-- Step 2 -->
+            <div class="subscription-step">
+                <h3 class="step-title gray-text">Шаг 2</h3>
+                <label for="payment-method">Способ покупки абонемента</label>
+                <select id="payment-method">
+                    <option>Наличные</option>
+                    <option>Банковская карта</option>
+                    <option>Перевод на счёт</option>
+                </select>
+                <label for="delivery-method">Способ доставки</label>
+                <select id="delivery-method">
+                    <option>Курьером на дом</option>
+                    <option>Самовывоз</option>
+                    <option>Электронная доставка</option>
+                </select>
+                <label for="email">Ваш E-mail</label>
+                <input type="email" id="email">
+                <label for="name">Ваш ФИО</label>
+                <input type="text" id="name">
+                <label for="phone">Ваш телефон</label>
+                <input type="tel" id="phone">
+            </div>
+            <!-- Step 3 -->
+            <div class="subscription-step">
+                <h3 class="step-title gray-text">Шаг 3</h3>
+                <label for="city">Город</label>
+                <select id="city">
+                    <option>Владимир</option>
+                    <option>Москва</option>
+                    <option>Санкт-Петербург</option>
+                    <option>Новосибирск</option>
+                </select>
+                <label for="street">Улица</label>
+                <input type="text" id="street">
+                <label for="house">Дом</label>
+                <input type="text" id="house">
+                <label for="apartment">Квартира</label>
+                <input type="text" id="apartment">
+                <button type="submit" class="subscription-button">Купить абонемент</button>
+            </div>
+        </form>
+    </div>
+      
+    <div class="outer-container">
+      <div class="product-card">
+          <div class="product-image">
+              <img src="path/to/your/image.png" alt="Весенний букет">
+          </div>
+          <div class="product-details">
+              <div class="product-title">Весенний букет</div>
+              <div class="availability">Есть в наличии</div>
+              <div class="sizes">
+                  <div>XS</div>
+                  <div>S</div>
+                  <div>M</div>
+                  <div>L</div>
+                  <div>XL</div>
+              </div>
+              <div class="dimensions">
+                  <div class="dimension-item">
+                      <img src="path/to/your/height-image.png" alt="Высота">
+                      <div>
+                          <div>Высота</div>
+                          <div>30 см</div>
+                      </div>
+                  </div>
+                  <div class="dimension-item">
+                      <img src="path/to/your/diameter-image.png" alt="Диаметр">
+                      <div>
+                          <div>Диаметр</div>
+                          <div>20 см</div>
+                      </div>
+                  </div>
+              </div>
+              <div class="description">
+                  <div>Описание:</div>
+                  <ul>
+                      <li>9 шт. желтых тюльпанов</li>
+                      <li>7 шт. ирисов</li>
+                      <li>3 шт. белых фрезий</li>
+                      <li>3 шт. роз "Пени лейн"</li>
+                      <li>6 шт. листьев спатифиллума широкого</li>
+                  </ul>
+              </div>
+              <div class="price">1010 грн</div>
+              <div class="old-price">1250 грн</div>
+              <div class="order-section">
+                  <input type="number" class="quantity" value="1" min="1">
+                  <button class="order-button">ЗАКАЗАТЬ</button>
+              </div>
+          </div>
+      </div>
+  </div>
+    
+      <h2>Форма регистрации</h2>
+      <form id="registration-form" action="/submit_form_data" method="POST">
+        <label for="name">Имя:</label><br>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+        <label for="subscribe">Подпишись на новости</label><br><br>
+        
+        <label for="country">Выберите страну:</label><br>
+        <select id="country" name="country">
+          <option value="usa">Беларусь</option>
+          <option value="canada">Россия</option>
+          <option value="uk">Украина</option>
+          <option value="australia">Китай</option>
+        </select><br><br>
+        
+        <label>Выберите свой пол:</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Мужчина</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Женщина</label><br><br>
+        <label for="memo">Отправьте нам своё предложение:</label><br>
+        <textarea id="memo" name="memo" rows="4" cols="50"></textarea><br><br>
+        
+        <input type="submit" value="Подтвердить">
+      </form>
+    
+    <h2>Мои ссылки</h2>
+    <a href="https://github.com/vadimika1">My GitHub</a><br>
+
+    
+    <h2>Спецсимволы</h2>
+    <p>&#169; 2024 Вадим Антонович</p>
+</section>
+
+<!-- Встроенный JS -->
+<script>
+    function showMessage() {
+        alert('Привет, это встроенный скрипт!');
+    }
+
+    function confirmMessage() {
+        return confirm('Вы уверены?');
+    }
+</script>
+
+<!-- Вызов встроенного JS через событие -->
+<button onclick="showMessage()">Нажми меня</button>
+
+<!-- Гиперссылка -->
+<a href="#" onclick="confirmMessage(); return false;">Подтверди меня</a>
+    
+
+<!-- Встроенный JS с использованием оператора if -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (confirm('Вы хотите продолжить?')) {
+            alert('Вы нажали OK!');
+        } else {
+            alert('Вы нажали Cancel!');
+        }
+    });
+</script>
+
+<!-- Скрипт с циклом for -->
+<script>
+    for (let i = 0; i < 5; i++) {
+        console.log(`Итерация ${i}`);
+    }
+</script>
+
+<!-- Скрипт с циклом while -->
+<script>
+    let count = 0;
+    while (count < 3) {
+        console.log(`Счетчик: ${count}`);
+        count++;
+    }
+</script>
+
+<!-- Скрипт с циклом do...while -->
+<script>
+    let num = 0;
+    do {
+        console.log(`Номер: ${num}`);
+        num++;
+    } while (num < 3);
+</script>
+
+<!-- Скрипт с оператором switch -->
+<script>
+    const day = new Date().getDay();
+    let dayName;
+
+    switch (day) {
+        case 0:
+            dayName = 'Воскресенье';
+            break;
+        case 1:
+            dayName = 'Понедельник';
+            break;
+        case 2:
+            dayName = 'Вторник';
+            break;
+        case 3:
+            dayName = 'Среда';
+            break;
+        case 4:
+            dayName = 'Четверг';
+            break;
+        case 5:
+            dayName = 'Пятница';
+            break;
+        case 6:
+            dayName = 'Суббота';
+            break;
+        default:
+            dayName = 'Неизвестный день';
+    }
+
+    alert(`Сегодня ${dayName}`);
+</script>
+
+<!-- Скрипт с использованием continue и break -->
+<script>
+    for (let i = 0; i < 10; i++) {
+        if (i === 3) {
+            continue; // Пропускаем итерацию, когда i равно 3
+        }
+        if (i === 7) {
+            break; // Прерываем цикл, когда i равно 7
+        }
+        console.log(`Итерация: ${i}`);
+    }
+</script>
+<h2>Перейти на вторую страницу</h2>
+    <a href="cart/cart.html">Перейти на вторую страницу</a>
+<h2>Перейти на третью страницу</h2>
+    <a href="cart2/cart2.html">Перейти на третью страницу</a>
+<h2>Перейти на четвёртую страницу</h2>
+    <a href="Учебная практика/main.html">Перейти на четвёртую страницу</a>
+<h2>Перейти на пятую страницу (2048)</h2>
+    <a href="2048/2048.html">Перейти на пятую страницу</a>
+<h2>Перейти на шестую страниц (ООП) </h2>
+    <a href="OOP/Product card.html">Перейти на шестую страницу</a>
+<h2>Перейти на форму регистрации </h2>
+    <a href="register/index.html">Перейти на форму регистрации</a>
+<b></b>
+
+<!-- События мыши -->
+<button id="mouse-btn">Нажми меня (Событие мыши)</button>
+<script>
+    document.getElementById('mouse-btn').addEventListener('click', function() {
+        alert('Событие мыши сработало!');
+    });
+</script>
+
+<!-- События клавиатуры -->
+<input type="text" id="keyboard-input" placeholder="Нажмите любую клавишу">
+<script>
+    document.getElementById('keyboard-input').addEventListener('keydown', function(event) {
+        alert(`Вы нажали клавишу: ${event.key}`);
+    });
+</script>
+
+<!-- Drag & Drop события -->
+<div id="drag-box" style="width: 100px; height: 100px; background-color: red;" draggable="true"></div>
+<div id="drop-box" style="width: 100px; height: 100px; background-color: blue; margin-top: 10px;"></div>
+<script>
+    const dragBox = document.getElementById('drag-box');
+    const dropBox = document.getElementById('drop-box');
+
+    dragBox.addEventListener('dragstart', function() {
+        console.log('Началось перетаскивание');
+    });
+
+    dropBox.addEventListener('dragover', function(event) {
+        event.preventDefault();
+    });
+
+    dropBox.addEventListener('drop', function() {
+        alert('Элемент перетащен в синюю область');
+    });
+</script>
+
+<!-- События указателя -->
+<div id="pointer-area" style="width: 100px; height: 100px; background-color: green; margin-top: 10px;">Наведите сюда</div>
+<script>
+    document.getElementById('pointer-area').addEventListener('pointerover', function() {
+        alert('Указатель наведен на зеленый элемент');
+    });
+</script>
+
+<!-- События полосы прокрутки -->
+<div id="scrollable" style="width: 200px; height: 100px; overflow-y: scroll; background-color: lightgray;">
+    <p>Содержимое с прокруткой...</p>
+    <p>Ещё больше содержимого...</p>
+</div>
+<script>
+    document.getElementById('scrollable').addEventListener('scroll', function() {
+        console.log('Полоса прокрутки была использована');
+    });
+</script>
+
+<!-- События сенсорных экранов -->
+<div id="touch-area" style="width: 100px; height: 100px; background-color: yellow; margin-top: 10px;">Трогайте</div>
+<script>
+    document.getElementById('touch-area').addEventListener('touchstart', function() {
+        alert('Сенсорное касание!');
+    });
+</script>
+
+<!-- События с таймером -->
+<button id="timer-btn">Запустить таймер</button>
+<script>
+    document.getElementById('timer-btn').addEventListener('click', function() {
+        setTimeout(function() {
+            alert('Таймер сработал через 3 секунды');
+        }, 3000);
+    });
+</script>
+</body>
+</html>

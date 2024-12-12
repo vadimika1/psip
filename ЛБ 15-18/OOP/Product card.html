@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Card</title>
+    <style>
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 16px;
+            max-width: 300px;
+            text-align: center;
+            margin: 10px;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .product-card h3 {
+            margin: 10px 0;
+            font-size: 24px;
+        }
+
+        .product-card p {
+            margin: 10px 0;
+            color: #666;
+        }
+
+        .product-card span {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .add-to-cart {
+            margin-top: 15px;
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .add-to-cart:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="product-container"></div>
+
+    <script>
+        // Класс для товара
+        class Product {
+            constructor(name, price, description, imageUrl) {
+                this.name = name;
+                this.price = price;
+                this.description = description;
+                this.imageUrl = imageUrl;
+            }
+
+            // Метод для рендеринга карточки товара в HTML
+            render() {
+                const productContainer = document.getElementById('product-container');
+
+                // Создание элемента карточки товара
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+
+                // Вставка данных товара в HTML структуру карточки
+                productCard.innerHTML = `
+                    <img src="${this.imageUrl}" alt="${this.name}">
+                    <h3>${this.name}</h3>
+                    <p>${this.description}</p>
+                    <span>$${this.price}</span>
+                    <button class="add-to-cart">Добавить в корзину</button>
+                `;
+
+                // Добавление карточки товара в контейнер
+                productContainer.appendChild(productCard);
+            }
+        }
+
+        // Пример создания нового товара
+        const product1 = new Product(
+            "Смартфон",
+            499.99,
+            "Современный смартфон с отличной камерой и большим экраном.",
+            "images/noyt.jpg"
+        );
+
+        // Пример еще одного товара
+        const product2 = new Product(
+            "Ноутбук",
+            799.99,
+            "Мощный ноутбук для работы и развлечений.",
+            "images/images.jpg"
+        );
+
+        // Рендерим карточки товаров
+        product1.render();
+        product2.render();
+    </script>
+
+</body>
+</html>

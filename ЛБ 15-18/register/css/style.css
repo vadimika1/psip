@@ -1,0 +1,50 @@
+#myForm {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 0 auto; /* Add this line to center-align the form */
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#privacy-policy {
+    opacity: 0.7;
+}
+
+#submit {
+    background-color: rgb(207, 20, 20);
+    color: white;
+    border-radius: 8px;
+    font-weight: bold; /* Add this line to make the text bold */
+    width: 100%; /* Add this line to make the button full-width */
+}
+
+/* Optional: Add margin-bottom to #submit to provide some space */
+#submit {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script>
+        function initMap() {
+            var location = {lat: 50.4501, lng: 30.5234}; // Coordinates for Kyiv
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 15,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+
+        function openPopup() {
+        document.querySelector('.popup-overlay').style.display = 'flex';
+    }
+
+    function closePopup() {
+        document.querySelector('.popup-overlay').style.display = 'none';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('button').forEach(button => {
+        button.addEventListener('click', function(event) {
+            if (event.target.id === 'scrollToTopBtn') {
+                // Логика прокрутки вверх
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (!event.target.closest('.faq')) {
+                openPopup();
+            }
+        });
+    });
+    document.querySelector('.popup-close').addEventListener('click', closePopup);
+
+    // Добавляем обработчики для кнопок "Частые вопросы"
+    document.querySelectorAll('.accordion-header').forEach(header => {
+        header.addEventListener('click', function(event) {
+            // Предотвращаем действие по умолчанию, чтобы не открывался попап
+            event.preventDefault();
+            // Тут можно добавить логику для раскрытия блока с содержимым вопроса
+            // Например, через добавление класса для показа или анимацию
+        });
+    });
+});
+
+</script>
+</head>
+<body>
+    <header class="header">
+        <div id="home" class="header-left">
+            <img id="menuIcon" src="menu.png" alt="Menu Icon">
+            <div class="hamburger-menu" id="hamburgerMenu">
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#naprav">Наши направления</a></li>
+                    <li><a href="#urist">Наши юристы</a></li>
+                    <li><a href="#quest">Частые вопросы</a></li>
+                    <li><a href="#request">Отзывы клиентов</a></li>
+                    <li><a href="#services">Услуги адвокатов</a></li>
+                </ul>
+                <div class="contact-info">(067) 290-12-20</div>
+                <div class="social-icons">
+                    <img src="free-icon-facebook-733547.png" alt="Facebook">
+                    <img src="free-icon-instagram-2111463.png" alt="Instagram">
+                </div>
+            </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const menuIcon = document.getElementById('menuIcon');
+                    const hamburgerMenu = document.getElementById('hamburgerMenu');
+        
+                    menuIcon.addEventListener('click', function() {
+                        hamburgerMenu.style.display = 'block';
+                    });
+        
+                    document.addEventListener('click', function(event) {
+                        if (!hamburgerMenu.contains(event.target) && !menuIcon.contains(event.target)) {
+                            hamburgerMenu.style.display = 'none';
+                        }
+                    });
+                });
+            </script>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+            const menuLinks = document.querySelectorAll('.hamburger-menu a');
+
+            menuLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+            event.preventDefault(); // Предотвращаем переход по ссылке по умолчанию
+
+            const targetId = this.getAttribute('href').substring(1); // Получаем id целевого блока без символа #
+            const targetBlock = document.getElementById(targetId);
+
+            if (targetBlock) {
+                targetBlock.scrollIntoView({ behavior: 'smooth' }); // Прокручиваем страницу к целевому блоку с плавным эффектом
+            }
+        });
+    });
+});
+            </script>
+            <span class="lang">RU</span>
+        </div>
+        <h1 class="logo">JUSTITIA</h1>
+        <div class="header-right">
+            <img src="phone.png" alt="Телефон" class="phone-icon">
+            <span class="phone-number">(067) 290-12-20</span>
+            <button class="question-button">Задать вопрос</button>
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <img src="hero-image.jpeg" alt="Изображение" class="hero-image">
+            <div class="hero-overlay"></div>
+            <div class="hero-text">
+                <h2 class="hero-title">Команда опытных адвокатов</h2>
+                <p class="hero-subtitle">Команда адвокатов и юристов со средним стажем работы – 10 лет поможет вам в решении юридических вопросов</p>
+                <button class="hero-button">Бесплатная консультация</button>
+            </div>
+        </section>
+        <section class="photos">
+            <div id="naprav" class="photo-circle">
+                <img src="photo1.jpg" alt="Фото 1">
+            </div>
+            <div class="photo-circle">
+                <img src="photo2.jpg" alt="Фото 2">
+            </div>
+            <div class="photo-circle">
+                <img src="photo3.jpg" alt="Фото 3">
+            </div>
+            <div class="photo-circle">
+                <img src="photo4.png" alt="Фото 4">
+            </div>
+        </section>
+        <h2 class="directions-title">Наши направления:</h2>
+        <div class="directions-wrapper">
+            <section class="directions">
+                <div class="directions-content">
+                    <div class="direction-category">Семейное право</div>
+                    <div class="separator-container">
+                        <div class="separator"></div>
+                    </div>
+                    <div class="direction-list">
+                        <ul class="direction-column">
+                            <li>Брачный договор</li>
+                            <li>Расторжение брака</li>
+                            <li>Раздел имущества</li>
+                        </ul>
+                        <ul class="direction-column">
+                            <li>Брачный договор</li>
+                            <li>Расторжение брака</li>
+                        </ul>
+                    </div>
+                    <div class="buttons-container">
+                        <button class="button button-first">Подробнее</button>
+                        <button class="button button-second">Консультация</button>
+                    </div>
+                </div>
+            </section>
+            <section class="directions">
+                <div class="directions-content">
+                    <div class="direction-category">Исполнительное производство</div>
+                    <div class="separator-container">
+                        <div class="separator"></div>
+                    </div>
+                    <div class="direction-list">
+                        <ul class="direction-column">
+                            <li>Взыскание алиментов</li>
+                            <li>Изменение размера алиментов</li>
+                            <li>Взыскание алиментов из-за рублежа</li>
+                        </ul>
+                        <ul class="direction-column">
+                            <li>Определение места жительства ребенка</li>
+                            <li>Установление отцовства</li>
+                        </ul>
+                    </div>
+                    <div class="buttons-container">
+                        <button class="button button-first">Подробнее</button>
+                        <button class="button button-second">Консультация</button>
+                    </div>
+                </div>
+            </section>
+            <section class="directions">
+                <div class="directions-content">
+                    <div class="direction-category">Гражданское право</div>
+                    <div class="separator-container">
+                        <div class="separator"></div>
+                    </div>
+                    <div class="direction-list">
+                        <ul class="direction-column">
+                            <li>Решение жилищных споров</li>
+                            <li>Выселение бывшего партнера</li>
+                        </ul>
+                        <ul class="direction-column">
+                            <li>Раздел общего имущества супругов</li>
+                            <li>Раздел имущества в гражданском браке</li>
+                        </ul>
+                    </div>
+                    <div class="buttons-container">
+                        <button class="button button-first">Подробнее</button>
+                        <button class="button button-second">Консультация</button>
+                    </div>
+                </div>
+            </section>
+            <section class="directions">
+                <div class="directions-content">
+                    <div class="direction-category">Уголовное право</div>
+                    <div class="separator-container">
+                        <div class="separator"></div>
+                    </div>
+                    <div class="direction-list">
+                        <ul class="direction-column">
+                            <li>Решение жилищных споров</li>
+                            <li>Выселение бывшего партнера</li>
+                        </ul>
+                        <ul class="direction-column">
+                            <li>Раздел общего имущества супругов</li>
+                            <li>Раздел имущества в гражданском браке</li>
+                        </ul>
+                    </div>
+                    <div class="buttons-container">
+                        <button class="button button-first">Подробнее</button>
+                        <button class="button button-second">Консультация</button>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="statistics">
+            <div class="stat-block">
+                <div class="stat-text">10 лет</div>
+                <div class="stat-description">Средний стаж наших специалистов</div>
+            </div>
+            <div class="stat-block">
+               
+                <div class="stat-text">428</div>
+                <div class="stat-description">Проведено судебных процессов</div>
+            </div>
+            <div class="stat-block">
+                <div class="stat-text">91%</div>
+                <div class="stat-description">Процент выигранных дел</div>
+            </div>
+        </div>
+        <div id="urist" class="lawyers-text">Наши юристы</div>
+        <div class="lawyers">
+            <div class="lawyer">
+                <img src="photo1.jpg" alt="Lawyer 1" width="180" height="180">
+                <div class="lawyer-name">Юлия Котова</div>
+                <div class="lawyer-description">Юрист, эксперт по уголовному праву</div>
+            </div>
+            <div class="lawyer">
+                <img src="photo2.jpg" alt="Lawyer 2" width="180" height="180">
+                <div class="lawyer-name">Ксения Собчак</div>
+                <div class="lawyer-description">Адвокат,  эксперт по уголовному и административному праву</div>
+            </div>
+            <div class="lawyer">
+                <img src="photo3.jpg" alt="Lawyer 3" width="180" height="180">
+                <div class="lawyer-name">Валя Карнавал</div>
+                <div class="lawyer-description">Юрист, эксперт по миграционному и административному праву</div>
+            </div>
+            <div class="lawyer">
+                <img src="photo4.png" alt="Lawyer 4" width="180" height="180">
+                <div class="lawyer-name">Татьяна Шидловская</div>
+                <div class="lawyer-description">Адвокат, эксперт по семейному и  гражданскому праву</div>
+            </div>
+        </div>
+        <div id="quest" class="buttons-container2">
+            <button class="button2 button-first2">
+                <img src="phone2.png" alt="Телефон" class="phone-icon">
+                Бесплатная консультация
+            </button>
+            <button class="button2 button-second2">О компании</button>
+        </div>
+        <section class="faq">
+            <h2 class="faq-title">Частые вопросы</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">Что такое исполнительная надпись?</button>
+                    <div class="accordion-content">
+                        <p>Текст</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Как отменить исполнительную надпись?</button>
+                    <div class="accordion-content">
+                        <p>Текст</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Могут ли списывать деньги по исполнительной надписи?</button>
+                    <div class="accordion-content">
+                        <p>Текст</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">Могут ли списывать деньги по исполнительной надписи?</button>
+                    <div class="accordion-content">
+                        <p>Текст</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="hero">
+            <img src="hero-image.jpeg" alt="Изображение" class="hero-image">
+            <div class="hero-overlay"></div>
+            <div class="hero-text">
+                <h2 class="hero-title">Бесплатная консультация</h2>
+                <p class="hero-subtitle">Проконсультируем по вашему вопросу и предложим юридеческое решения</p>
+                <div class="buttons-container3">
+                    <button class="button2 button-first3">
+                        <img src="message.png" alt="Телефон" class="phone-icon">
+                        Задать вопрос
+                    </button>
+                </div>
+            </div>
+        </section>
+        <div id="request" class="reviews-section">
+            <h2>Отзывы клиентов</h2>
+            <div class="reviews-container">
+                <div class="review-card">
+                    <img src="otzyv1.png" alt="Фото клиента" class="client-photo">
+                    <div class="review-content">
+                        <p class="client-name">Людмила</p>
+                        <p class="client-feedback">
+                            Месяц назад, в связи с изменением места жительства возникла необходимость в быстром увольнении с текущего места работы, при этом получив отпускные и другие причитающиеся выплаты и компенсации. Предприятие отказывало в увольнении ссылаясь на производственную необходимость и нехватку кадров по моей профессии.
+                        </p>
+                    </div>
+                </div>
+                <div class="review-card">
+                    <img src="otzyv2.png" alt="Фото клиента" class="client-photo">
+                    <div class="review-content">
+                        <p class="client-name">Елена</p>
+                        <p class="client-feedback">
+                            При разводе с бывшим мужем встал вопрос о разделе имущества. На помощь пришел юрист Валерий Лебедев, который смог доходчиво и понятно объяснить, что нужно делать. Помог выиграть в суде. Рекомендую всем!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container5" id="services">
+            <h1 class="title5">Услуги адвокатов</h1>
+            <p class="paragraph5">Семейное право непростая в моральном смысле, поскольку, как правило, стороны процесса не <br> желают встречаться в суде, или пытаются минимизировать такие встречи. И здесь на помощь <br> приходит адвокат нашей компании, ведь после заключения соглашения Вы можете не посещать <br> судебные заседания, и только получать письменные отчеты о ходе выполнения Вашего поручения <br> профессиональным юристом. Все полученные документы по делу Вы будете получать в удобное <br> для Вас способ в условиях пандемии (на Ваш емейл, через Новую почту оригинал документов). Все <br> правовые позиции по делу будут согласованы с Вами заранее письменно, выстроенная стратегия и <br> тактика защиты Ваших прав и законных интересов.</p>
+            <p class="paragraph5">Задача нашей Юридической компании «justitia» не только решить Ваш вопрос, но и предостеречь <br> от возможных негативных последствий. Юридическая компания «justitia» предоставит <br> профессиональные услуги по семейным делам любой сложности и на любой стадии.</p>
+            <br>
+            <br>
+            <button class="button2 button-first2" >
+                <img src="phone2.png" alt="Телефон" class="phone-icon">
+                Бесплатная консультация
+            </button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-contact">
+                <img src="JUSTITIA.png" alt="Footer Image">
+                <p class="footer-phone">(067) 290-12-20</p>
+                <p class="footer-apps">Viber, Telegram</p>
+                <p class="footer-address">Киев, ул. Саксаганского, 112, офис 103</p>
+                <p class="footer-email">wellcometojusstitia@gmail.com</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Направления</h4>
+                    <ul class="footer-list">
+                        <li class="footer-list-item">Семейное право</li>
+                        <li class="footer-list-item">Уголовное право</li>
+                        <li class="footer-list-item">Исполнительное производство</li>
+                        <li class="footer-list-item">Гражданское право</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-section-title">Информация</h4>
+                    <ul class="footer-list">
+                        <li class="footer-list-item">О компании</li>
+                        <li class="footer-list-item">Отзывы</li>
+                        <li class="footer-list-item">Контакты</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="footer-social-link"><img src="free-icon-facebook-733547.png" alt="Facebook"></a>
+                <a href="#" class="footer-social-link"><img src="free-icon-instagram-2111463.png" alt="Instagram"></a>
+            </div>
+        </div>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.101440730652!2d-122.41941508468913!3d37.77492977975888!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809c5a9e7f57%3A0x4a114d2c5b6d6eb8!2sSan%20Francisco%2C%20CA%2C%20USA!5e0!3m2!1sen!2s!4v1597440831560!5m2!1sen!2s" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="footer-bottom">
+            <div class="left">© JUSTITIA, 2021</div>
+            <div class="center">Политика конфиденциальности</div>
+        </div>
+    </footer>
+    <div class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close">&times;</span>
+            <h2>Бесплатная консультация</h2>
+            <p>Перезвоним в рабочее время в течение часа и <br> проконсультируем по вашей ситуации</p>
+            <textarea placeholder="Ваш вопрос"></textarea>
+            <input type="text" placeholder="Имя">
+            <input type="text" placeholder="Телефон">
+            <button>Получить консультацию</button>
+            <small>Отправляя заявку вы даете согласие на обработку ваших персональных данных</small>
+        </div>
+    </div>
+    <!-- Кнопка прокрутки наверх -->
+    <button id="scrollToTopBtn" class="scrollToTopBtn">&#8679;</button>
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+    <script src="script3.js"></script>    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Добавляем обработчики для иконок социальных сетей
+    document.querySelectorAll('.footer-social-link').forEach(link => {
+        link.addEventListener('click', function(event) {
+            // Предотвращаем действие по умолчанию (прокрутку страницы)
+            event.preventDefault();
+            // Добавьте здесь вашу логику для обработки нажатия на иконку
+            // Например, переход на страницу социальной сети или открытие новой вкладки
+        });
+    });
+});
+
+    </script>
+</body>
+</html>
+    

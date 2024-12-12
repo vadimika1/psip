@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пример HTML-документа</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .element {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+            border: 1px solid #ccc; /* Добавляем стандартную рамку */
+            transition: border-color 0.2s ease; /* Плавная анимация для рамки */
+        }
+        .form-group small {
+            display: block;
+            margin-top: 5px;
+            color: #888;
+        }
+        .submit-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        .submit-button:hover {
+            background-color: #0056b3;
+        }
+        .image-container img {
+            max-width: 200px;
+            height: auto;
+        }
+        .change-style-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .change-style-button:hover {
+            background-color: #218838;
+        }
+        .invalid {
+            border: 2px solid red; /* Красная рамка для ошибок валидации */
+        }
+        .error-message {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="element" id="name-container">
+    <p>Антонович Вадим Владимирович</p>
+</div>
+
+<div class="element" id="favorite-site">
+    <a href="https://www.youtube.com" target="_blank">Мой любимый сайт</a>
+</div>
+
+<div class="element image-container" id="image-container">
+    <img src="IMG_7075.jpg" alt="Пример изображения">
+</div>
+
+<div class="element">
+    <form id="contact-form" action="#" method="post">
+        <div class="form-group">
+            <label for="name">Имя</label>
+            <input type="text" id="name" name="name" required>
+            <small>Обязательно к заполнению</small>
+            <div class="error-message" id="name-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <small>Введите корректный адрес электронной почты</small>
+            <div class="error-message" id="email-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="subject">Тема</label>
+            <input type="text" id="subject" name="subject" required>
+            <small>Обязательно к заполнению</small>
+            <div class="error-message" id="subject-error"></div>
+        </div>
+        <div class="form-group">
+            <label for="message">Сообщение</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            <small>Обязательно к заполнению</small>
+            <div class="error-message" id="message-error"></div>
+        </div>
+        <div>
+            <button type="submit" class="submit-button">Отправить сообщение</button>
+        </div>
+    </form>
+</div>
+
+<button class="change-style-button" onclick="changeStyle()">Сменить стиль</button>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Задание 1: Получить массив всех форм на странице
+        const forms = document.forms;
+
+        // Задание 2: Вывести информацию через 5 секунд после запуска страницы
+        setTimeout(() => {
+            console.log('Все формы на странице:', forms);
+            alert('Все формы на странице: ' + forms.length);
+        }, 5000);
+
+        // Задание 3: Поменять местами элементы 2 и 3 при клике на элемент 2
+        const favoriteSite = document.getElementById('favorite-site');
+        const imageContainer = document.getElementById('image-container');
+
+        favoriteSite.addEventListener('click', function() {
+            const parent = favoriteSite.parentNode;
+            parent.insertBefore(imageContainer, favoriteSite);
+        });
+
+        // Валидация формы
+        const form = document.getElementById('contact-form');
+
+        form.addEventListener('submit', function(event) {
+            let isValid = true;
+
+            // Валидация поля "Имя"
+            const nameInput = document.getElementById('name');
+            const nameError = document.getElementById('name-error');
+            if (!nameInput.value.trim()) {
+                nameError.textContent = 'Это поле обязательно к заполнению';
+                nameInput.classList.add('invalid'); // Добавляем класс 'invalid'
+                isValid = false;
+            } else if (nameInput.value.length > 50) {
+                nameError.textContent = 'Имя не должно превышать 50 символов';
+                nameInput.classList.add('invalid'); // Добавляем класс 'invalid'
+                isValid = false;
+            } else {
+                nameError.textContent = '';
+                nameInput.classList.remove('invalid'); // Удаляем класс 'invalid'
+            }
+
+            // Валидация поля "Email"
+            const emailInput = document.getElementById('email');
+            const emailError = document.getElementById('email-error');
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailInput.value.trim()) {
+                emailError.textContent = 'Это поле обязательно к заполнению';
+                emailInput.classList.add('invalid'); // Добавляем класс 'invalid'
+                isValid = false;
+            } else if (!emailPattern.test(emailInput.value)) {
+                emailError.textContent = 'Введите корректный адрес электронной почты';
+                emailInput.classList.add('invalid'); // Добавляем класс 'invalid'
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+                emailInput.classList.remove('invalid'); // Удаляем класс 'invalid'
+            }
+
+            // Валидация поля "Тема"
+            const subjectInput = document.getElementById('subject');
+            const subjectError = document.getElementById('subject-error');
+            if (!subjectInput.value.trim()) {
+                subjectError.textContent = 'Это поле обязательно к заполнению';
+                subjectInput.classList.add('invalid'); // Добавляем класс 'invalid'
+                isValid = false;
+            } else if (subjectInput.value.length > 100) {
+                subjectError.textContent = 'Тема не должна превышать 100 символов';
+                subjectInput.classList.add('invalid'); // Добавляем класс 'invalid'
+                isValid = false;
+            } else {
+                subjectError.textContent = '';
+                subjectInput.classList.remove('invalid'); // Удаляем класс 'invalid'
+            }
+
+            // Валидация поля "Сообщение"
+            const messageInput = document.getElementById('message');
+            const messageError = document.getElementById('message-error');
+            if (!messageInput.value.trim()) {
+                messageError.textContent = 'Это поле обязательно к заполнению';
+                messageInput.classList.add('invalid'); // Добавляем класс 'invalid'
+                isValid = false;
+            } else if (messageInput.value.length > 500) {
+                messageError.textContent = 'Сообщение не должно превышать 500 символов';
+                messageInput.classList.add('invalid'); // Добавляем класс 'invalid'
+                isValid = false;
+            } else {
+                messageError.textContent = '';
+                messageInput.classList.remove('invalid'); // Удаляем класс 'invalid'
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    });
+
+    function changeStyle() {
+        const nameContainer = document.getElementById('name-container');
+        if (nameContainer.style.position === 'fixed') {
+            nameContainer.style.position = '';
+            nameContainer.style.bottom = '';
+            nameContainer.style.right = '';
+            nameContainer.style.backgroundColor = '';
+            nameContainer.style.color = '';
+        } else {
+            nameContainer.style.position = 'fixed';
+            nameContainer.style.bottom = '20px';
+            nameContainer.style.right = '20px';
+            nameContainer.style.backgroundColor = 'red';
+            nameContainer.style.color = 'blue';
+        }
+    }
+</script>
+
+</body>
+</html

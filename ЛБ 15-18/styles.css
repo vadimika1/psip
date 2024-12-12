@@ -1,0 +1,404 @@
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #37363d; 
+    color: #eaeaea; 
+}
+
+nav {
+    display: grid; /* Устанавливаем Grid-контейнер */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Автоматически подгоняем количество колонок */
+    gap: 10px; /* Добавляем промежутки между элементами */
+    text-align: center; /* Центрируем содержимое внутри nav */
+}
+
+.outer-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 130vh;
+    padding-top: 20px; /* Отступ сверху */
+}
+.product-card {
+    display: flex;
+    max-width: 1200px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    background-color: #fff;
+    color: #000;
+}
+.product-image {
+    flex: 1;
+    max-width: 50%;
+}
+.product-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.product-details {
+    flex: 1;
+    padding: 20px;
+}
+.product-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.availability {
+    color: green;
+    margin-bottom: 20px;
+}
+.sizes {
+    display: flex;
+    margin-bottom: 20px;
+}
+.sizes div {
+    border: 1px solid #333;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.sizes div:hover {
+    background-color: #f1f1f1;
+}
+.dimensions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.dimensions div {
+    text-align: center;
+}
+.dimension-item {
+    display: flex;
+    align-items: center;
+}
+.dimension-item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+.description {
+    margin-bottom: 20px;
+}
+.price {
+    font-size: 20px;
+    color: #ff6600;
+    margin-bottom: 10px;
+}
+.old-price {
+    text-decoration: line-through;
+    color: #999;
+    margin-bottom: 20px;
+}
+.order-section {
+    display: flex;
+    align-items: center;
+}
+.quantity {
+    border: 1px solid #333;
+    width: 50px;
+    text-align: center;
+    margin-right: 10px;
+}
+.order-button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    cursor: pointer;
+}
+
+nav a {
+    display: inline-block;
+    color: #eaeaea;
+    text-decoration: none;
+    padding: 10px 20px; /* задает внутренний отступ вокруг текста ссылки */
+    border-radius: 15px;
+    background-color: #242528;
+    border-color: #389193;
+    border-style: solid;
+}
+
+.subscription-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1200px;
+    text-align: center;
+    color: #37363d; 
+}
+
+.main-title {
+    color: orange;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #886a4a;
+}
+
+.subscription-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.subscription-step {
+    flex: 1 1 300px;
+    min-width: 300px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: gainsboro;
+}
+
+.yellow-text {
+    color: orange;
+}
+
+.yellow-options {
+    color: orange
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+select, input {
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+.subscription-price {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.subscription-button {
+    background-color: white;
+    color: orange;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-color: orange;
+    border-radius: 1px;
+    margin-top: 20px;
+}
+
+.subscription-button:hover {
+    background-color: #e6c900;
+}
+
+.training-type {
+    color:yellow;
+}
+
+
+nav a:hover {
+    color: #ffffff; /* Изменяем цвет текста при наведении */
+    background-color: #00bcd4; /* Изменяем цвет фона при наведении */
+}
+
+header {
+    background-color: #242528;
+    color: #eaeaea;
+    padding: 10px 0; /* Задаем верхний и нижний внутренний отступ для header */
+    border-radius: 15px;
+}
+
+.photo-container {
+    display: grid; /* Устанавливаем Grid-контейнер */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Автоматически подгоняем количество колонок */
+    gap: 20px; /* Добавляем промежутки между элементами */
+}
+
+.photo-container img {
+    width: 100%; /* Устанавливаем ширину фотографий на 100% внутри grid */
+    height: auto; /* Высота автоматически рассчитывается, чтобы сохранить пропорции изображения */
+    border: 5px solid #389193;
+}
+
+audio, video {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse; 
+}
+
+table th, table td {
+    border: 1px solid #886a4a; 
+    padding: 8px; 
+}
+
+form {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    padding: 20px;
+    color: #886a4a; 
+}
+
+ul {
+    list-style-type: disc; /* для маркированных списков используйте тип "disc" */
+}
+
+ol {
+    list-style-type: decimal; /* для нумерованных списков используйте тип "decimal" */
+}
+
+ul, ol, li {
+    margin: 0;
+    padding: 5px;
+}
+
+audio, video {
+    outline: none; 
+}
+
+p {
+    text-align: center; /* Выравнивание по центру */
+    font-size: 20px; /* Увеличение размера шрифта до 20 пикселей (можете изменить по своему усмотрению) */
+}
+
+/* Теговый селектор */
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #37363d; 
+    color: #eaeaea; 
+}
+
+/* Псевдоклассы, определяющие состояние элементов */
+nav a:hover {
+    color: #ffffff; /* Изменяем цвет текста при наведении */
+    background-color: #00bcd4; /* Изменяем цвет фона при наведении */
+}
+
+/* Псевдоклассы, имеющие отношение к дереву документа */
+header h1:first-child {
+    margin-top: 0; /* Убираем верхний отступ для первого заголовка внутри header */
+}
+
+/* Псевдоклассы, задающие язык текста */
+p:lang(en) {
+    font-style: italic; /* Задаем курсивный стиль для английского текста */
+}
+
+/* Псевдоэлементы */
+h2::before {
+    content: "Заголовок: "; /* Добавляем текст перед каждым h2 */
+}
+
+/* Контекстные селекторы */
+ul + p {
+    font-weight: bold; /* Добавляем полужирное начертание для абзаца, идущего после списка ul */
+}
+
+/* Соседние селекторы */
+nav + section {
+    margin-top: 20px; /* Добавляем отступ между навигацией и следующим section */
+}
+
+/* Дочерние селекторы */
+form > label {
+    display: block; /* Превращаем метки в блочные элементы внутри формы */
+}
+
+/* Селекторы атрибутов */
+a[href^="http"] {
+    color: #00bcd4; /* Задаем цвет ссылкам, начинающимся с "http" */
+    font-weight: bold; /* Добавляем полужирное начертание для таких ссылок */
+}
+
+/* Медиа-запросы для адаптивного дизайна */
+
+/* Стили для десктопов */
+@media (min-width: 1024px) {
+    .photo-container {
+        display: flex; /* Устанавливаем flex-контейнер */
+        flex-direction: row; /* Располагаем элементы в одну строку */
+        justify-content: center; /* Центрируем фотографии по горизонтали */
+        gap: 20px; /* Добавляем промежутки между элементами */
+        overflow-x: auto; /* Добавляем горизонтальную прокрутку */
+    }
+
+    .photo-container img {
+        flex: 0 0 auto; /* Фиксированная ширина фотографий */
+        width: 300px; /* Ширина фотографий */
+        max-width: none; /* Отменяем ограничение максимальной ширины */
+    }
+
+    nav a {
+        padding: 15px 30px; /* Увеличиваем отступы для десктопов */
+    }
+
+    p {
+        font-size: 24px; /* Увеличиваем размер шрифта для десктопов */
+    }
+}
+
+/* Стили для планшетов */
+@media (min-width: 768px) and (max-width: 1023px) {
+    nav {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Автоматически подгоняем количество колонок */
+    }
+
+    .photo-container {
+        grid-template-columns: repeat(2, 1fr); /* Две колонки на планшетах */
+    }
+
+    p {
+        font-size: 20px; /* Изменяем размер шрифта для планшетов */
+    }
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 767px) {
+    nav {
+        grid-template-columns: 1fr; /* Одна колонка для навигации на мобильных устройствах */
+        gap: 5px; /* Уменьшаем промежутки между элементами */
+    }
+
+    nav a {
+        margin-right: 0; /* Убираем правый внешний отступ между ссылками */
+        padding: 10px; /* Уменьшаем отступы для мобильных устройств */
+    }
+
+    .photo-container {
+        grid-template-columns: 1fr; /* Одна колонка для фотографий на мобильных устройствах */
+        gap: 10px; /* Уменьшаем промежутки между элементами */
+    }
+
+    p {
+        font-size: 16px; /* Уменьшаем размер шрифта для мобильных устройств */
+    }
+}
+
